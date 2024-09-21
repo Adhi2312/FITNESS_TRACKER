@@ -40,6 +40,7 @@ h1{
   position: fixed;
   bottom: 0;
   margin: 15px;
+  border-radius: 7px;
   
   left: 50%;          /* Position the div's left edge in the center of the page */
   transform: translateX(-50%); 
@@ -47,9 +48,9 @@ h1{
   
   
 }
-.nav-prof
+/* .nav-prof
 {
   
-  /* width: 100%; */
+  width: 100%;
   
-}
+} */
