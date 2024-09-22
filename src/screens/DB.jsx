@@ -1,5 +1,9 @@
 import React from 'react'
 import './db.css'
+// import { Gauge, gaugeClasses } from '@mui/x-charts/Gauge';
+import GaugeChart from 'react-gauge-chart'
+import GaugeComponent from 'react-gauge-component'
+
 
 const DB = () => {
   return (
@@ -10,6 +14,14 @@ const DB = () => {
       <div className='one'>
           <div className='one-1'>
             <h1>hai</h1>
+            {/* <gauge/>
+             */}
+             <GaugeChart id="gauge-chart1" percent={0.6} />
+             
+             
+
+           
+           
           </div>
 
           <div className='one-2'>
@@ -42,6 +54,9 @@ const DB = () => {
 
     </div>
   )
+}
+const gauge=()=>{
+  <GaugeChart id="gauge-chart1" percent={0.5} />
 }
 
 export default DB
