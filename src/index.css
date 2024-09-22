@@ -44,7 +44,7 @@ h1{
   bottom: 0;
   margin:10px;
   gap: 50px;
-  margin-top: 190 px;
+  margin-top: 190px;
   border-radius: 20px;
   left: 50%;          /* Position the div's left edge in the center of the page */
   transform: translateX(-50%); 

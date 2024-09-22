@@ -10,12 +10,12 @@ import { Chart } from "react-google-charts";
 const DB = () => {
   return (
     <div className='DB-main'>
-      <div>
-        <h1> hi prithiv</h1>
+      <div style={{display:"flex",width:"100%",alignItems:"flex-start",marginLeft:"100px"}}>
+        <h1> Hello , Prithiv Raj</h1>
       </div>
       <div className='one'>
           <div className='one-1'>
-            <h1>hai</h1>
+            <h3>hai</h3>
             {/* <gauge/>
              */}
              <GaugeChart id="gauge-chart1" percent={0.6} />
@@ -27,11 +27,11 @@ const DB = () => {
           </div>
 
           <div className='one-2'>
-          <h1>HELLO</h1>
+          <h3>HELLO</h3>
           </div>
 
           <div className='one-3'>
-          <h1>hai</h1>
+          <h3>hai</h3>
 
           </div>
       </div>
