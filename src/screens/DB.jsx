@@ -10,7 +10,7 @@ import { Chart } from "react-google-charts";
 const DB = () => {
   return (
     <div className='DB-main'>
-      <div style={{display:"flex",width:"100%",alignItems:"flex-start",marginLeft:"100px"}}>
+      <div style={{display:"flex",width:"100%",alignItems:"flex-start"}}>
         <h1> Hello , Prithiv Raj</h1>
       </div>
       <div className='one'>
@@ -49,7 +49,7 @@ const DB = () => {
               <div style={{height:"10%",width:"100%",marginLeft:"10px"}}>
               <h3>Caloric Balance: Intake vs Burn Rate</h3>
               </div>
-              <div style={{height:"80%",width:"100%",backgroundColor:"blue"}}>
+              <div style={{height:"80%",width:"100%"}}>
                   <LineChart/>
               </div>
               

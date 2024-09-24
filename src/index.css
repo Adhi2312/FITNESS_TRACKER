@@ -19,7 +19,7 @@ h1{
 }
 .sub-main
 {
-  padding: 20px;
+  /* padding: 20px; */
   /* background-color: black; */
   /* min-height: 86%; */
  
@@ -31,7 +31,7 @@ h1{
   /* background-color: bisque; */
   height: 100vh;
   background-color: #e5e5e5;
-  padding: auto;
+  /* padding: auto; */
 
 }
 .nav
