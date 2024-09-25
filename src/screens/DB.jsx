@@ -4,6 +4,8 @@ import './db.css'
 import GaugeChart from 'react-gauge-chart'
 import GaugeComponent from 'react-gauge-component'
 import { Chart } from "react-google-charts";
+import { LineChart } from '@mui/x-charts/LineChart';
+import { Gauge } from '@mui/x-charts/Gauge';
 
 
 
@@ -27,7 +29,25 @@ const DB = () => {
           </div>
 
           <div className='one-2'>
-          <h3>HELLO</h3>
+          <div style={{height:"8%",marginTop:'-10px',width:"100%",marginLeft:"10px",marginBottom:"10px"}}>
+              <h3>Macros</h3>
+              </div>
+              <div className='one-gauge'>
+                <div style={{height:"100%"}}>
+                <Gauge width={150} height={150} value={60} />
+                <p>Protein</p>
+                </div>
+                <div style={{height:"100%"}}>
+                <Gauge width={150} height={150} value={60} />
+                <p>Carbs</p>
+                </div>
+                <div style={{height:"100%"}}>
+                <Gauge width={150} height={150} value={60} />
+                <p>Fats</p>
+                </div>
+                  {/* <Linechart/> */}
+                  
+              </div>
           </div>
 
           <div className='one-3'>
@@ -49,8 +69,8 @@ const DB = () => {
               <div style={{height:"10%",width:"100%",marginLeft:"10px"}}>
               <h3>Caloric Balance: Intake vs Burn Rate</h3>
               </div>
-              <div style={{height:"80%",width:"100%"}}>
-                  <LineChart/>
+              <div style={{height:"80%",width:"100%",marginTop:"-15px"}}>
+                  <Linechart/>
               </div>
               
               {/* <LineChart/> */}
@@ -64,7 +84,7 @@ const DB = () => {
     </div>
   )
 }
-const LineChart=()=>{
+const Linechart=()=>{
   const data = [
     ["Year", "Sales", "Expenses"],
     ["2004", 1000, 400],
@@ -81,13 +101,24 @@ const LineChart=()=>{
   // <GaugeChart id="gauge-chart1" percent={0.5} />
   return (
     // <div>
-    <Chart
-      chartType="LineChart"
-      width="100%"
-      height="100%"
-      data={data}
-      options={options}
-    />
+    <LineChart
+  xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
+  series={[
+    {
+      data: [2, 5.5, 2, 8.5, 1.5, 5],
+      color: "#ff5a5a",
+    
+    }
+    ,
+    {
+      data: [3, 7, 8 , 5, 5, 1],
+      color:'#8f8f',
+    
+    }
+  ]}
+  width={600}
+  height={350}
+/>
     // </div>
   );
 }
