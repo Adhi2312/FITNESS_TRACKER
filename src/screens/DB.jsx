@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './db.css'
-// import { Gauge, gaugeClasses } from '@mui/x-charts/Gauge';
 import GaugeChart from 'react-gauge-chart'
 import GaugeComponent from 'react-gauge-component'
 import { Chart } from "react-google-charts";
@@ -9,14 +8,13 @@ import { faHeartbeat, faShoePrints } from '@fortawesome/free-solid-svg-icons';
 import { LineChart } from '@mui/x-charts/LineChart';
 import { Gauge } from '@mui/x-charts/Gauge';
 import { HeartbeatIndicator, StepIndicator } from '../HeartbeatStep.js';
-// import StepHeartRateChart from './StepHeartRateChart';
 import ArcDesign from '../ArcDesign.js';
 
 
 
 const DB = () => {
-  const [steps, setSteps] = useState(4500);       // You can set initial mock steps here
-  const [heartRate, setHeartRate] = useState(75);  // You can set initial mock heart rate here
+  const [steps, setSteps] = useState(4500);       
+  const [heartRate, setHeartRate] = useState(75);
   return (
     <div className='DB-main'>
       <div style={{display:"flex",width:"100%",alignItems:"flex-start"}}>
@@ -124,7 +122,7 @@ const Linechart=()=>{
   width={600}
   height={350}
 />
-    // </div>
+  
   );
 }
 
