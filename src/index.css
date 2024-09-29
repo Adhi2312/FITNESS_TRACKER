@@ -1,5 +1,5 @@
 body {
-  margin: 0;
+  margin:0px;
   
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -17,19 +17,19 @@ code {
 h1{
   margin: 0px;
 }
-.sub-main
+/* .sub-main
 {
-  /* padding: 20px; */
-  /* background-color: black; */
-  /* min-height: 86%; */
+  padding: 20px; 
+  background-color: black;
+  min-height: 86%;
  
-}
+}  */
 .main
 {
   display: flex;
   flex-direction: column;
   /* background-color: bisque; */
-  height: 100vh;
+  height: 117vh;
   background-color: #e5e5e5;
   /* padding: auto; */
 

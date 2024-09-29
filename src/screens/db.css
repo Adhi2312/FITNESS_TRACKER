@@ -2,7 +2,7 @@
 {
     display: flex;
     flex-direction: column;
-    padding: 10px 68px;
+    padding: 10px 60px;
     /* justify-content: center; */
     /* align-items: center; */
     /* margin-left: auto;
@@ -64,12 +64,31 @@
 .two-1
 {
     /* padding: 15px; */
-    min-height: 400px;
+    max-height: 450px;
     min-width: 345px;
     margin: 10px 10px 10px 0px;
     background-color: #ffffff;
     border-radius: 13px;
    
+}
+.two-1-1{
+  min-height: 200px;
+  max-width: 172 px;
+  margin: 10px 10px 10px 10px;
+  background-color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  border-radius: 13px;
+}
+
+.two-1-2{
+  min-height: 200px;
+  max-width: 172 px;
+  margin: 10px 10px 10px 10px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  background-color: #fff;
+  border-radius: 13px;
 }
 .two-2
 {
@@ -123,3 +142,28 @@
   .one-gauge>div>p{
     margin: 0px;
   }
+
+  .heartbeat-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: heartbeat 1.5s infinite;
+    color: red;
+  }
+  
+  @keyframes heartbeat {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+  }
+  
+  .footstep-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #000;
+  }
+  

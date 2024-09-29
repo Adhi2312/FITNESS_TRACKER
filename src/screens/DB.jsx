@@ -1,15 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react';
 import './db.css'
 // import { Gauge, gaugeClasses } from '@mui/x-charts/Gauge';
 import GaugeChart from 'react-gauge-chart'
 import GaugeComponent from 'react-gauge-component'
 import { Chart } from "react-google-charts";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeartbeat, faShoePrints } from '@fortawesome/free-solid-svg-icons';                                
 import { LineChart } from '@mui/x-charts/LineChart';
 import { Gauge } from '@mui/x-charts/Gauge';
+import { HeartbeatIndicator, StepIndicator } from '../HeartbeatStep.js';
+// import StepHeartRateChart from './StepHeartRateChart';
+import ArcDesign from '../ArcDesign.js';
 
 
 
 const DB = () => {
+  const [steps, setSteps] = useState(4500);       // You can set initial mock steps here
+  const [heartRate, setHeartRate] = useState(75);  // You can set initial mock heart rate here
   return (
     <div className='DB-main'>
       <div style={{display:"flex",width:"100%",alignItems:"flex-start"}}>
@@ -20,12 +27,8 @@ const DB = () => {
             <h3>hai</h3>
             {/* <gauge/>
              */}
-             <GaugeChart id="gauge-chart1" percent={0.6} />
+             <div style={{marginLeft:"65px"}}><ArcDesign/></div>
              
-             
-
-           
-           
           </div>
 
           <div className='one-2'>
@@ -58,12 +61,14 @@ const DB = () => {
 
       <div className='two'>
         <div className='two-1'>
-            <div className='two-1-1'>
-
-            </div>
-            <div className='two-1-2'>
-
-            </div>
+        <div className='two-1-1'>
+            <HeartbeatIndicator />
+            <h3 style={{marginLeft:"15px"}}>Heart Rate: {heartRate} bpm</h3>  {/* Display mock heart rate */}
+          </div>
+          <div className='two-1-2'>
+            <StepIndicator />
+            <h3 style={{marginLeft:"15px"}}>Steps: {steps}</h3>  {/* Display mock steps */}
+          </div>
         </div>
         <div className='two-2'>
               <div style={{height:"10%",width:"100%",marginLeft:"10px"}}>
