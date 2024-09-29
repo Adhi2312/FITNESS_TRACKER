@@ -8,6 +8,7 @@ import { faHeartbeat, faShoePrints } from '@fortawesome/free-solid-svg-icons';
 import { LineChart } from '@mui/x-charts/LineChart';
 import { Gauge } from '@mui/x-charts/Gauge';
 import { HeartbeatIndicator, StepIndicator } from '../HeartbeatStep.js';
+import GaugeWithAnimation from '../GaugeWithAnimation.js';
 import ArcDesign from '../ArcDesign.js';
 
 
@@ -15,6 +16,8 @@ import ArcDesign from '../ArcDesign.js';
 const DB = () => {
   const [steps, setSteps] = useState(4500);       
   const [heartRate, setHeartRate] = useState(75);
+  const [taskCompletion, setTaskCompletion] = useState(65); 
+
   return (
     <div className='DB-main'>
       <div style={{display:"flex",width:"100%",alignItems:"flex-start"}}>
@@ -25,30 +28,28 @@ const DB = () => {
             <h3>hai</h3>
             {/* <gauge/>
              */}
-             <div style={{marginLeft:"65px"}}><ArcDesign/></div>
+             <div><GaugeWithAnimation percentage={taskCompletion} /></div>
              
           </div>
 
           <div className='one-2'>
-          <div style={{height:"8%",marginTop:'-10px',width:"100%",marginLeft:"10px",marginBottom:"10px"}}>
-              <h3>Macros</h3>
-              </div>
-              <div className='one-gauge'>
-                <div style={{height:"100%"}}>
-                <Gauge width={150} height={150} value={60} />
-                <p>Protein</p>
-                </div>
-                <div style={{height:"100%"}}>
-                <Gauge width={150} height={150} value={60} />
-                <p>Carbs</p>
-                </div>
-                <div style={{height:"100%"}}>
-                <Gauge width={150} height={150} value={60} />
-                <p>Fats</p>
-                </div>
-                  {/* <Linechart/> */}
-                  
-              </div>
+          <div style={{ height: "8%", marginTop: '-10px', width: "100%", marginLeft: "10px", marginBottom: "10px" }}>
+            <h3>Macros</h3>
+          </div>
+          <div className='one-gauge'>
+            <div style={{ height: "100%" }}>
+              <Gauge width={150} height={150} value={60} />
+              <p>Protein</p>
+            </div>
+            <div style={{ height: "100%" }}>
+              <Gauge width={150} height={150} value={60} />
+              <p>Carbs</p>
+            </div>
+            <div style={{ height: "100%" }}>
+              <Gauge width={150} height={150} value={60} />
+              <p>Fats</p>
+            </div>
+          </div>
           </div>
 
           <div className='one-3'>
