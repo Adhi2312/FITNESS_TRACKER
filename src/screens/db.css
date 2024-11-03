@@ -64,17 +64,39 @@
 .two-1
 {
     /* padding: 15px; */
-    min-height: 400px;
+    max-height: 400px;
     min-width: 345px;
     margin: 10px 10px 10px 0px;
-    background-color: #ffffff;
+    /* background-color: #ffffff; */
     border-radius: 13px;
    
+}
+.two-1-1
+{
+  background-color:#ffffff;
+  padding: 15px;
+  width: 91%;
+  height: 40%;
+  border-radius: 13px;
+}
+.two-1-2
+{
+  background-color:#ffffff;
+  padding: 15px;
+  width: 91%;
+  /* margin-top: -16px; */
+  height: 41%;
+  border-radius: 13px;
+  margin-top: 17px;
+}
+.two-1-2>h3
+{
+  margin-top: -1px;
 }
 .two-2
 {
     padding: 15px;
-    min-height: 400px;
+    max-height: 400px;
     min-width: 630px;
     margin: 10px;
     border-radius: 13px;
@@ -83,7 +105,7 @@
 .two-3
 {
     padding: 15px;
-    min-height: 400px;
+    max-height: 400px;
     min-width: 315px;
     margin: 10px;
     background-color: #ffffff;
@@ -109,6 +131,7 @@
   {
     height:85%;width:95%;margin-left:20px;display:flex;
     flex: 1;
+    /* background-color: aqua; */
     
   }
   .one-gauge>div
@@ -122,4 +145,7 @@
   }
   .one-gauge>div>p{
     margin: 0px;
+  }
+  .one-3>h3{
+    margin-left: 20px;
   }

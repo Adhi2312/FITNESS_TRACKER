@@ -2,6 +2,7 @@ import React from 'react'
 import './db.css'
 // import { Gauge, gaugeClasses } from '@mui/x-charts/Gauge';
 import GaugeChart from 'react-gauge-chart'
+import footstep from '../imges/footstep.png'
 import GaugeComponent from 'react-gauge-component'
 import { Chart } from "react-google-charts";
 import { LineChart } from '@mui/x-charts/LineChart';
@@ -17,10 +18,24 @@ const DB = () => {
       </div>
       <div className='one'>
           <div className='one-1'>
-            <h3>hai</h3>
-            {/* <gauge/>
-             */}
-             <GaugeChart id="gauge-chart1" percent={0.6} />
+            
+          <div style={{height:"8%",marginTop:'-10px',width:"100%",marginLeft:"10px",marginBottom:"10px"}}>
+              <h3>Calories</h3>
+              </div>
+              <div className='one-gauge'>
+              <GaugeComponent
+  type="semicircle"
+  arc={{
+    colorArray: ['#00FF15', '#FF2121'],
+    padding: 0.02,
+    subArcs: [{ limit: 40 }, { limit: 60 }, { limit: 70 }]
+  }}
+  pointer={{ type: "blob", animationDelay: 0 }}
+  value={50}
+/>
+
+                </div>
+             
              
              
 
@@ -51,8 +66,17 @@ const DB = () => {
           </div>
 
           <div className='one-3'>
-          <h3>hai</h3>
-
+          
+          <h3>BMI</h3>
+          {/* <GaugeChart id="gauge-chart1" percent={0.6} />
+           */}
+<GaugeChart id="gauge-chart5"
+  nrOfLevels={3}
+  // arcsLength={[0.5, 0.5, 0.5]}
+  colors={['#5BE12C', '#F5CD19', '#EA4228']}
+  percent={0.4}
+  arcPadding={0.02}
+/>
           </div>
       </div>
 
@@ -62,6 +86,13 @@ const DB = () => {
 
             </div>
             <div className='two-1-2'>
+              {/* <h3>Step Count</h3> */}
+              <h3>Step Count</h3>
+              <div style={{display:"flex",flexDirection:"column",padding:"20px",alignItems:"center"}}>
+              <img style={{height:"80px",width:"80px"}} src={footstep}/>
+              <h3>3000</h3>
+              </div>
+              
 
             </div>
         </div>
@@ -124,3 +155,6 @@ const Linechart=()=>{
 }
 
 export default DB
+const chartStyle = {
+  height: 250,
+}
