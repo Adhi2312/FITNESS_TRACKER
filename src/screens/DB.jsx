@@ -1,8 +1,11 @@
 import React from 'react'
 import './db.css'
+import cal from '../imges/fire.gif'
+import foot from '../imges/runer-silhouette-running-fast.png'
 // import { Gauge, gaugeClasses } from '@mui/x-charts/Gauge';
 import GaugeChart from 'react-gauge-chart'
 import footstep from '../imges/footstep.png'
+import footsteps from '../imges/footsteps.png'
 import GaugeComponent from 'react-gauge-component'
 import { Chart } from "react-google-charts";
 import { LineChart } from '@mui/x-charts/LineChart';
@@ -19,22 +22,7 @@ const DB = () => {
       <div className='one'>
           <div className='one-1'>
             
-          <div style={{height:"8%",marginTop:'-10px',width:"100%",marginLeft:"10px",marginBottom:"10px"}}>
-              <h3>Calories</h3>
-              </div>
-              <div className='one-gauge'>
-              <GaugeComponent
-  type="semicircle"
-  arc={{
-    colorArray: ['#00FF15', '#FF2121'],
-    padding: 0.02,
-    subArcs: [{ limit: 40 }, { limit: 60 }, { limit: 70 }]
-  }}
-  pointer={{ type: "blob", animationDelay: 0 }}
-  value={50}
-/>
-
-                </div>
+            <img src={cal} height={130} width={130}/>
              
              
              
@@ -87,11 +75,13 @@ const DB = () => {
             </div>
             <div className='two-1-2'>
               {/* <h3>Step Count</h3> */}
-              <h3>Step Count</h3>
-              <div style={{display:"flex",flexDirection:"column",padding:"20px",alignItems:"center"}}>
-              <img style={{height:"80px",width:"80px"}} src={footstep}/>
-              <h3>3000</h3>
-              </div>
+              
+              
+              <img style={{height:"60px",width:"60px"}} src={foot}/>
+              <p>Steps</p>
+              <h3>300 m</h3>
+              
+            
               
 
             </div>

@@ -88,10 +88,21 @@
   height: 41%;
   border-radius: 13px;
   margin-top: 17px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .two-1-2>h3
 {
   margin-top: -1px;
+}
+.two-1-2>img
+{
+  margin-top: 5px;
+  margin-bottom: -5px;
+}
+.two-1-2>p{
+  /* margin: 0px 0px 10px 0px; */
 }
 .two-2
 {
