@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react';
 import './db.css'
 import cal from '../imges/fire.gif'
 import foot from '../imges/runer-silhouette-running-fast.png'
@@ -10,10 +10,12 @@ import GaugeComponent from 'react-gauge-component'
 import { Chart } from "react-google-charts";
 import { LineChart } from '@mui/x-charts/LineChart';
 import { Gauge } from '@mui/x-charts/Gauge';
+import heartbeatImage from '../imges/heartbeat.png';
 
 
 
 const DB = () => {
+  const [heartRate, setHeartRate] = useState(75);
   return (
     <div className='DB-main'>
       <div style={{display:"flex",width:"100%",alignItems:"flex-start"}}>
@@ -71,7 +73,9 @@ const DB = () => {
       <div className='two'>
         <div className='two-1'>
             <div className='two-1-1'>
-
+            <img style={{marginTop:"20px", marginLeft: "135px", height: "50px", width: "50px" }} src={heartbeatImage} alt="Heartbeat" />
+            <h3 style={{marginLeft:"115px"}}>Heart Rate</h3>  {/* Display mock heart rate */}
+            <h3 style={{marginLeft:"124px"}}>{heartRate} bpm</h3>
             </div>
             <div className='two-1-2'>
               {/* <h3>Step Count</h3> */}
