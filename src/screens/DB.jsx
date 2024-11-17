@@ -5,12 +5,18 @@ import foot from '../imges/runer-silhouette-running-fast.png'
 // import { Gauge, gaugeClasses } from '@mui/x-charts/Gauge';
 import GaugeChart from 'react-gauge-chart'
 import footstep from '../imges/footstep.png'
-import footsteps from '../imges/footsteps.png'
+import hrt from '../imges/heartbeat.gif'
 import GaugeComponent from 'react-gauge-component'
 import { Chart } from "react-google-charts";
 import { LineChart } from '@mui/x-charts/LineChart';
 import { Gauge } from '@mui/x-charts/Gauge';
+// import React from "react";
+import { render } from "react-dom";
+import _ from "lodash";
+import CircularProgressbar from "react-circular-progressbar";
 import heartbeatImage from '../imges/heartbeat.png';
+
+
 
 
 
@@ -73,9 +79,12 @@ const DB = () => {
       <div className='two'>
         <div className='two-1'>
             <div className='two-1-1'>
-            <img style={{marginTop:"20px", marginLeft: "135px", height: "50px", width: "50px" }} src={heartbeatImage} alt="Heartbeat" />
+            <img style={{height:"60px",width:"60px"}} src={hrt}/>
+              <p>Heart Rate</p>
+              {/* <h3></h3> */}
+            {/* <img style={{marginTop:"20px", marginLeft: "135px", height: "50px", width: "50px" }} src={heartbeatImage} alt="Heartbeat" />
             <h3 style={{marginLeft:"115px"}}>Heart Rate</h3>  {/* Display mock heart rate */}
-            <h3 style={{marginLeft:"124px"}}>{heartRate} bpm</h3>
+            <h3 style={{}}>{heartRate} bpm</h3>  
             </div>
             <div className='two-1-2'>
               {/* <h3>Step Count</h3> */}

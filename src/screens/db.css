@@ -77,8 +77,13 @@
   background-color:#ffffff;
   padding: 15px;
   width: 91%;
+  /* margin-top: -16px; */
   height: 40%;
   border-radius: 13px;
+  /* margin-top: 17px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .two-1-2
 {
@@ -103,6 +108,19 @@
   margin-bottom: -5px;
 }
 .two-1-2>p{
+  /* margin: 0px 0px 10px 0px; */
+}
+.two-1-1>h3
+{
+  margin-top: -1px;
+}
+
+.two-1-1>img
+{
+  margin-top: 5px;
+  margin-bottom: -5px;
+}
+.two-1-1>p{
   /* margin: 0px 0px 10px 0px; */
 }
 .two-2
