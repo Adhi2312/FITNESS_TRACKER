@@ -101,3 +101,7 @@ input:focus
 .add-b>p{
     margin: 0px 10px;
 }
+h1{
+    font-weight: 700;
+    font-size: 24;
+}
