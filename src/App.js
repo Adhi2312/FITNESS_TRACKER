@@ -6,8 +6,7 @@ import { Routes,Route, useNavigate} from 'react-router-dom';
 import { FaHome, FaUser, FaUtensils } from 'react-icons/fa';
 import { useState } from 'react-router-dom';
 import ProfileForm from './screens/ProfileForm';
-import PersonalInfoPage from './screens/Personal';
-import UserInfoPage from './screens/HealthView'
+import {Signup, GDLB} from './screens/signup';
 function App() {
 
   return (
@@ -26,11 +25,11 @@ function App() {
             <Route path="/" element={<DB/> } />
             <Route path="/plate" element={<Food/>}/>
             <Route path="/check" element={<ProfileForm />} />
-            <Route path="/name" element={<PersonalInfoPage />} />
-            <Route path="/toknow" element={<UserInfoPage/>} />
+            <Route path='/signup' element={<GDLB/>}/>
           </Routes>
         </div>
-        <NavBar/>
+                 <NavBar/>
+        
    </div>
   );
 }
