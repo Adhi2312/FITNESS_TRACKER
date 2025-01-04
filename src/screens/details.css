@@ -53,13 +53,13 @@ label {
   font-size: 14px;
 }
 
-input {
+/* input {
   width: 100%;
   padding: 12px 16px;
   border: 1px solid #ccc;
   border-radius: 10px;
   font-size: 16px;
-}
+} */
 
 .save-btn {
   display: block;
