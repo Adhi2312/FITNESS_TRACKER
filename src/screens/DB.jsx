@@ -5,6 +5,7 @@ import foot from '../imges/runer-silhouette-running-fast.png';
 import GaugeChart from 'react-gauge-chart';
 import hrt from '../imges/heartbeat.gif';
 import { authenticateFitbit, fetchFitbitActivities } from './Connect';
+import { Gauge,LineChart } from '@mui/x-charts';
 
 const DB = () => {
   const [heartRate, setHeartRate] = useState(75);
@@ -184,6 +185,6 @@ const Linechart=()=>{
 }
 
 export default DB
-const chartStyle = {
-  height: 250,
-}
+// const chartStyle = {
+// ï¿½ï¿½height:ï¿½250,
+// }

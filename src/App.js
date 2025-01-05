@@ -25,12 +25,10 @@ function App() {
             <Route path='/signup/*' element={<FirstPage/>}/>
           </Routes>
         </div>
-<<<<<<< Updated upstream
+
                  <NavBar/>
         
-=======
-                  <NavBar/>     
->>>>>>> Stashed changes
+
    </div>
   );
 }

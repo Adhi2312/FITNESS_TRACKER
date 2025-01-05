@@ -65,7 +65,7 @@ export const Card=({SetCard})=>
     console.log("meal")
     const body={
     
-      dish_name:"soup",
+      dish_name:"sggo",
           calorie:45,
           
          protein:1.7,
