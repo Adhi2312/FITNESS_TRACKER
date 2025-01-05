@@ -1,29 +1,43 @@
-import React, { useState } from 'react';
-import './db.css'
-import cal from '../imges/fire.gif'
-import foot from '../imges/runer-silhouette-running-fast.png'
-// import { Gauge, gaugeClasses } from '@mui/x-charts/Gauge';
-import GaugeChart from 'react-gauge-chart'
-import footstep from '../imges/footstep.png'
-import hrt from '../imges/heartbeat.gif'
-import GaugeComponent from 'react-gauge-component'
-import { Chart } from "react-google-charts";
-import { LineChart } from '@mui/x-charts/LineChart';
-import { Gauge } from '@mui/x-charts/Gauge';
-// import React from "react";
-import { render } from "react-dom";
-import _ from "lodash";
-import CircularProgressbar from "react-circular-progressbar";
-import heartbeatImage from '../imges/heartbeat.png';
-
-
-
-
+import React, { useState, useEffect } from 'react';
+import './db.css';
+import cal from '../imges/fire.gif';
+import foot from '../imges/runer-silhouette-running-fast.png';
+import GaugeChart from 'react-gauge-chart';
+import hrt from '../imges/heartbeat.gif';
+import { authenticateFitbit, fetchFitbitActivities } from './Connect';
 
 const DB = () => {
   const [heartRate, setHeartRate] = useState(75);
+  const [activities, setActivities] = useState(null); 
+  const [date, setDate] = useState("");
 
-  return (
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await fetchFitbitActivities(date);
+        console.log(data);
+        setActivities(data); // Update activities with the fetched data
+      } catch (error) {
+        console.error("Error fetching activities:", error);
+      }
+    };
+
+    fetchData();
+
+    const interval = setInterval(() => {
+      console.log("Fetching Fitbit activities...");
+      fetchData();
+    }, 30 * 60 * 1000); 
+
+    return () => clearInterval(interval);
+  }, [date]);
+
+  const handleConnectFitbit = () => {
+    authenticateFitbit();
+  };
+
+
+return (
     <div className='DB-main'>
       <div style={{display:"flex",width:"100%",alignItems:"flex-start"}}>
         <h1> Hello , Prithiv Raj</h1>
@@ -171,5 +185,5 @@ const Linechart=()=>{
 
 export default DB
 const chartStyle = {
-  height: 250,
+  height: 250,
 }

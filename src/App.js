@@ -12,17 +12,9 @@ import { FirstPage } from './signup-pages/Main-Page';
 function App() {
   
 
-  return (
-
-
-
-
-
-  
+  return ( 
     <div className='main'>
-        
-   
-        
+                
         <div className='sub-main'>
           <Routes>
             {/* <Route path='/' element={Navigate to="/signup" />}/> */}
@@ -33,8 +25,12 @@ function App() {
             <Route path='/signup/*' element={<FirstPage/>}/>
           </Routes>
         </div>
+<<<<<<< Updated upstream
                  <NavBar/>
         
+=======
+                  <NavBar/>     
+>>>>>>> Stashed changes
    </div>
   );
 }
