@@ -7,6 +7,7 @@ import { FaPlus } from "react-icons/fa6";
 import { FiMinus } from "react-icons/fi";
 
 import { RxCross1 } from "react-icons/rx";
+import { useNavigate } from 'react-router-dom';
 
 export const Food = () => {
   const [card,SetCard] =useState(false);
@@ -57,6 +58,33 @@ export const Food = () => {
 }
 export const Card=({SetCard})=>
 {
+  const nav=useNavigate();
+  
+
+  const handle=async()=>{
+    console.log("meal")
+    const body={
+    
+      dish_name:"soup",
+          calorie:45,
+          
+         protein:1.7,
+          fat:0.3,
+          carbs:9
+  
+    }
+    try{const res=await fetch('http://localhost:4000/meal',{
+      method: 'POST',
+      credentials: 'include',
+      headers: {'Content-Type': 'application/json',
+          },
+        body:JSON.stringify(body)}
+        );
+        console.log(res.status);
+      if (res.status==200)nav('/dashboard')}
+      
+        catch(error){console.log(error)}
+  }
   const[count,setCount]=useState(0);
   return(
 
@@ -90,7 +118,7 @@ export const Card=({SetCard})=>
           <button onClick={()=>{setCount(count+1)}}><FaPlus size={7} /></button>
 
         </div>
-        <button style={{minWidth:"100px",padding:'10px 30px',margin:"10px",borderRadius:"10px",border:'0px'}}>Add</button>
+        <button onClick={handle} style={{minWidth:"100px",padding:'10px 30px',margin:"10px",borderRadius:"10px",border:'0px'}}>Add</button>
         
 
       </div>

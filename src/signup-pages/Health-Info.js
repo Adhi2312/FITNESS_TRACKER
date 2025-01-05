@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
-export const HealthInfo = () => {
+export const HealthInfo = (props) => {
     const nav=useNavigate();
   return (
     <div className='form'> 
@@ -9,14 +9,13 @@ export const HealthInfo = () => {
     <div className='form-2'>
       
       <h4>Height in cm*</h4>
-      <input placeholder='Enter your height in cm'/>
+      <input onChange={(e)=>{props.setHeight(e.target.value)}} placeholder='Enter your height in cm'/>
       <h4>Weight in lbs*</h4>
-      <input placeholder='Enter your weight in lbs'/>
+      <input onChange={(e)=>{props.setWeight(e.target.value)}} placeholder='Enter your weight in lbs'/>
       <h4>Blood group*</h4>
-      <input placeholder='Enter your Blood group'/>
+      <input onChange={(e)=>{props.setBloodGroup(e.target.value)}} placeholder='Enter your Blood group'/>
      
-      <button onClick={()=>{nav('/dashboard')}} >Submit</button>
-
+      <button onClick={props.handleSubmit} >Submit</button>
     </div>
 
     

@@ -11,11 +11,11 @@ export const Verification = () => {
       <h4>Enter 6 digit otp sent to your email*</h4>
       <div className='otp'>
       <input   maxlength="1" id="field1" oninput="moveToNext(this, 'field2')" />
-  <input type="text" maxlength="1" id="field2" oninput="moveToNext(this, 'field3')" />
-  <input type="text" maxlength="1" id="field3" oninput="moveToNext(this, 'field4')" />
+  <input type="text" maxLength="1" id="field2" oninput="moveToNext(this, 'field3')" />
+  <input type="text" maxLength="1" id="field3" oninput="moveToNext(this, 'field4')" />
   <input type="text" maxlength="1" id="field4" oninput="moveToNext(this, 'field5')" />
-  <input type="text" maxlength="1" id="field5" oninput="moveToNext(this, 'field6')" />
-  <input type="text" maxlength="1" id="field6" />
+  <input type="text" maxLength="1" id="field5" oninput="moveToNext(this, 'field6')" />
+  <input type="text" maxLength="1" id="field6" />
      
       </div>
       

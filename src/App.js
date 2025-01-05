@@ -33,7 +33,7 @@ function App() {
             <Route path='/signup/*' element={<FirstPage/>}/>
           </Routes>
         </div>
-                 {/* <NavBar/> */}
+                 <NavBar/>
         
    </div>
   );

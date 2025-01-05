@@ -22,6 +22,7 @@ import heartbeatImage from '../imges/heartbeat.png';
 
 const DB = () => {
   const [heartRate, setHeartRate] = useState(75);
+
   return (
     <div className='DB-main'>
       <div style={{display:"flex",width:"100%",alignItems:"flex-start"}}>
@@ -45,7 +46,18 @@ const DB = () => {
               </div>
               <div className='one-gauge'>
                 <div style={{height:"100%"}}>
-                <Gauge width={150} height={150} value={60} />
+                <Gauge width={150} height={150} value={60}  sx={{
+        '& .MuiGauge-valueArc': {
+          fill: '#7400b8', // Value arc color
+        },
+        '& .MuiGauge-referenceArc': {
+          fill: '#d3d3d3', // Reference arc color
+        },
+        '& .MuiGauge-valueLabel': {
+          fill: '#7400b8', // Value text color
+          fontSize: '24px', // Optional font size customization
+        },
+      }} />
                 <p>Protein</p>
                 </div>
                 <div style={{height:"100%"}}>

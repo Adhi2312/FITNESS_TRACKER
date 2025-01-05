@@ -1,15 +1,51 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './signup.css'
 import { MdOutlineCircle } from "react-icons/md";
 import { CgShapeCircle } from "react-icons/cg";
 import { FaRegCircleCheck } from "react-icons/fa6";
 import { PersonalInfo } from './personal-info';
-import { Routes,Route } from 'react-router-dom';
+import { Routes,Route,useNavigate } from 'react-router-dom';
 import { HealthInfo } from './Health-Info';
 import { GeneralInfo } from './General-Info';
 import { Password } from './Password';
 import { Verification } from './Verification';
 export const FirstPage = () => {
+  const nav=useNavigate();
+  const[firstname, setFirstname]=useState('ad');
+  const[lastname, setLastname]=useState('');
+  const[email, setEmail]=useState('');
+  const[password, setPassword]=useState('');
+  const[gender, setGender]=useState(1);
+  const[location, setLocation]=useState('');
+  const[dob, setDob]=useState('');
+  const[height, setHeight]=useState(0);
+  const[weight, setWeight]=useState(0);
+  const [bloodgroup, setBloodgroup]=useState('');
+  const handleSubmit=async()=>{
+    const body={username:firstname+' '+lastname,
+    
+    email:email,
+    password:password,
+    gender:gender,
+    country:location,
+    dob:dob,
+  height:height,
+    weight:weight,
+    bloodGroup:bloodgroup}
+    try{const res=await fetch('http://localhost:4000/signup',{
+method: 'POST',
+credentials: 'include',
+headers: {'Content-Type': 'application/json',
+    },
+  body:JSON.stringify(body)}
+  );
+  console.log(res.status);
+if (res.status==200)nav('/dashboard')}
+
+  catch(error){console.log(error)}
+
+
+  }
   return (
     <div className='signup-css'>
         <div className='con-1'>
@@ -20,7 +56,7 @@ export const FirstPage = () => {
                 </div>
                 <div className='con-1-2'>
                     <div className='con-sub'>
-                    <FaRegCircleCheck size={24} />
+                    <FaRegCircleCheck onClick={()=>console.log(firstname)} size={24} />
                     <h3>Personal Info</h3>
                       
 
@@ -58,11 +94,11 @@ export const FirstPage = () => {
         </div>
         <div className='con-2'>
           <Routes>
-            <Route path='personal' element={<PersonalInfo/>}/>
-            <Route path='health-info' element={<HealthInfo/>}/>
+            <Route path='personal' element={<PersonalInfo setFirstname={setFirstname} setLastname={setLastname} setEmail={setEmail}/>}/>
+            <Route path='health-info' element={<HealthInfo setHeight={setHeight} setWeight={setWeight} setBloodGroup={setBloodgroup} handleSubmit={handleSubmit}/>}/>
             <Route path='verify' element={<Verification/>}/>
-            <Route path='create-password' element={<Password/>}/>
-            <Route path='general-info' element={<GeneralInfo/>}/>
+            <Route path='create-password' element={<Password setPassword={setPassword}/>}/>
+            <Route path='general-info' element={<GeneralInfo setDob={setDob} setGender={setGender}  setLocation={setLocation}/>}/>
           </Routes>
           
           {/* <PersonalInfo/> */}
