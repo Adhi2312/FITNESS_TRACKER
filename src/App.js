@@ -8,8 +8,10 @@ import { useState } from 'react-router-dom';
 import ProfileForm from './screens/ProfileForm';
 import {Signup, GDLB} from './screens/signup';
 import { FirstPage } from './signup-pages/Main-Page';
+// import { useNavigate } from 'react-router-dom';
 
 function App() {
+  console.log('well');
   
 
   return ( 
@@ -18,8 +20,8 @@ function App() {
         <div className='sub-main'>
           <Routes>
             {/* <Route path='/' element={Navigate to="/signup" />}/> */}
-            <Route path="/" element={<Navigate to="/signup/personal" />} />
-            <Route path="/dashboard" element={<DB/> } />
+            {/* <Route path="/" element={<Navigate to="/signup/personal" />} /> */}
+            <Route path="/" element={<DB/> } />
             <Route path="/plate" element={<Food/>}/>
             <Route path="/check" element={<ProfileForm />} />
             <Route path='/signup/*' element={<FirstPage/>}/>

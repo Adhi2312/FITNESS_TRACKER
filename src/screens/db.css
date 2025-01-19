@@ -146,9 +146,11 @@
     display: none;
   }
   h3{
-    margin: 10px 10px 0px 10px;
+    margin:0px;
+    margin: 2px;
     font-size: large;
     font-weight: 600;
+    /* background-color: red; */
     font-family: satoshi;
   }
   h1{
@@ -213,4 +215,50 @@
   /* padding: 10px; */
   /* background-color: aqua; */
   align-items: center;
+}
+.one-1-sub
+{
+  height: 100%;
+  width: 100%;
+  /* background-color: aqua; */
+  display: flex;
+  flex-direction: column;
+}
+.one-1-chart
+{
+  display: flex;
+  /* background-color: rgb(249, 149, 149); */
+  height: 100%;
+  width: 100%;
+}
+.gauge{
+  width: 60%;
+  /* background-color: bisque; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.gauge-info
+{
+  /* width: 35%; */
+  display: flex;
+  flex-direction: column;
+}
+.info-sub
+{
+  width: 100%;
+  padding: 5px 4px;
+  margin-top: 15px;
+  /* background-color: #dededee9; */
+  border-radius: 5px;
+}
+.info-sub>h4
+{
+  margin: 0px;
+  font-size: small;
+}
+.info-sub>p{
+  margin: 2px;
+  /* padding:  1px 0px ; */
 }

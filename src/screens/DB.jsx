@@ -6,11 +6,29 @@ import GaugeChart from 'react-gauge-chart';
 import hrt from '../imges/heartbeat.gif';
 import { authenticateFitbit, fetchFitbitActivities } from './Connect';
 import { Gauge,LineChart } from '@mui/x-charts';
-
+import { useNavigate } from 'react-router-dom';
 const DB = () => {
   const [heartRate, setHeartRate] = useState(75);
   const [activities, setActivities] = useState(null); 
   const [date, setDate] = useState("");
+  const nav=useNavigate();
+  
+  const res=async()=>{
+    try{const res=await fetch('http://localhost:4000/authorize',{
+      method: 'GET',
+      credentials: 'include',
+      headers: {'Content-Type': 'application/json',
+          },
+        }
+        );
+        console.log(res.status);
+      if (res.status==404)nav('/signup/personal');}
+      
+        catch(error){console.log(error)}
+    
+  }
+  
+   const ok=res();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -46,7 +64,18 @@ return (
       <div className='one'>
           <div className='one-1'>
             
-            <img src={cal} height={130} width={130}/>
+            <div className='one-1-sub'>
+                    <h3>Calorie</h3>
+                    <div className='one-1-chart'>
+                        <div className='gauge'>
+                            <GaugeComponent/>
+                        </div>
+                        <div className='gauge-info'>
+                        <SubComponent text={'Calorie Gained'} color={'#f1fdf5'} tc={'#2b9e56'} />
+                        <SubComponent text={"Calorie burnt"} color={'#eef7ff'} tc={'#2b64d9'}/>
+                        </div>
+                    </div>
+            </div>
              
              
              
@@ -63,24 +92,52 @@ return (
                 <div style={{height:"100%"}}>
                 <Gauge width={150} height={150} value={60}  sx={{
         '& .MuiGauge-valueArc': {
-          fill: '#7400b8', // Value arc color
+          fill: '#00274D', // Value arc color
         },
         '& .MuiGauge-referenceArc': {
           fill: '#d3d3d3', // Reference arc color
         },
         '& .MuiGauge-valueLabel': {
-          fill: '#7400b8', // Value text color
+          fill: '#74b8', // Value text color
           fontSize: '24px', // Optional font size customization
         },
       }} />
                 <p>Protein</p>
                 </div>
                 <div style={{height:"100%"}}>
-                <Gauge width={150} height={150} value={60} />
+                <Gauge width={150} height={150} value={60} 
+                
+                sx={{
+                  '& .MuiGauge-valueArc': {
+                    fill: '#72C2E8', // Value arc color
+                  },
+                  '& .MuiGauge-referenceArc': {
+                    fill: '#d3d3d3', // Reference arc color
+                  },
+                  '& .MuiGauge-valueLabel': {
+                    fill: '#74b8', // Value text color
+                    fontSize: '24px', // Optional font size customization
+                  },
+                }}
+                />
                 <p>Carbs</p>
                 </div>
                 <div style={{height:"100%"}}>
-                <Gauge width={150} height={150} value={60} />
+                <Gauge width={150} height={150} value={60} 
+                
+                sx={{
+                  '& .MuiGauge-valueArc': {
+                    fill: '#556B2F', // Value arc color
+                  },
+                  '& .MuiGauge-referenceArc': {
+                    fill: '#d3d3d3', // Reference arc color
+                  },
+                  '& .MuiGauge-valueLabel': {
+                    fill: '#74b8', // Value text color
+                    fontSize: '24px', // Optional font size customization
+                  },
+                }} 
+                />
                 <p>Fats</p>
                 </div>
                   {/* <Linechart/> */}
@@ -188,3 +245,34 @@ export default DB
 // const chartStyle = {
 // ��height:�250,
 // }
+
+const SubComponent=({text,color,tc})=>{
+  return(
+    <div className='info-sub' style={{backgroundColor:color}}>
+      <p>
+        {text}
+      </p>
+      <p style={{fontWeight:'bold' ,color:tc}}>10000</p>
+    </div>
+  )
+}
+const GaugeComponent=()=>{
+  return(
+    <Gauge width={150} height={150} value={60} 
+                
+                sx={{
+                  '& .MuiGauge-valueArc': {
+                    fill: '#28A745', // Value arc color
+                  },
+                  '& .MuiGauge-referenceArc': {
+                    fill: '#d3d3d3', // Reference arc color
+                  },
+                  '& .MuiGauge-valueLabel': {
+                    fill: '#74b8', // Value text color
+                    // text:"rem",
+                    fontSize: '24px', // Optional font size customization
+                  },
+                }}
+                />
+  )
+}
