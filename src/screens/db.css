@@ -262,3 +262,45 @@
   margin: 2px;
   /* padding:  1px 0px ; */
 }
+.circle-container {
+  position: relative;
+  width: 192px; /* 48 x 4 = 192px */
+  height: 192px; /* 48 x 4 = 192px */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress-ring {
+  transform: rotate(-90deg); /* Rotates the circle for progress effect */
+  width: 100%;
+  height: 100%;
+}
+
+.progress-ring__background,
+.progress-ring__circle {
+  fill: none;
+  stroke-width: 15;
+  cx: 90;
+  cy: 90; 
+  r: 65; /* Radius */
+}
+
+.progress-ring__background {
+  stroke: #e5e7eb; /* Background color of the circle */
+}
+
+.progress-ring__circle {
+  stroke: #22c55e; /* Progress color */
+  stroke-linecap: round;
+  stroke-dasharray: 502.4; /* Circumference of the circle (2 * π * radius) */
+  stroke-dashoffset: 200; /* Adjust this for progress (502.4 - progress value) */
+  transition: stroke-dashoffset 0.5s ease; /* Smooth transition for progress */
+}
+
+.progress-text {
+  position: absolute;
+  font-size: 1.5rem; /* Equivalent to text-2xl */
+  font-weight: bold;
+  color: #4b5563; /* Equivalent to text-gray-700 */
+}

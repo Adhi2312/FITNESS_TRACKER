@@ -11,6 +11,7 @@ import { useNavigate } from 'react-router-dom';
 
 export const Food = () => {
   const [card,SetCard] =useState(false);
+  
   return (
     <div>
        
@@ -62,10 +63,11 @@ export const Card=({SetCard})=>
   
 
   const handle=async()=>{
+    console.log("handle")
     console.log("meal")
     const body={
     
-      dish_name:"sggo",
+      // dish_name:"sggo",
           calorie:45,
           
          protein:1.7,
@@ -73,7 +75,7 @@ export const Card=({SetCard})=>
           carbs:9
   
     }
-    try{const res=await fetch('http://localhost:4000/meal',{
+    try{const res=await fetch('http://localhost:4000/update_macros',{
       method: 'POST',
       credentials: 'include',
       headers: {'Content-Type': 'application/json',
@@ -81,7 +83,8 @@ export const Card=({SetCard})=>
         body:JSON.stringify(body)}
         );
         console.log(res.status);
-      if (res.status==200)nav('/dashboard')}
+      // if (res.status==200)nav('/')
+      }
       
         catch(error){console.log(error)}
   }

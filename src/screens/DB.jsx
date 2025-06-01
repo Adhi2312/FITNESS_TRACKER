@@ -5,13 +5,17 @@ import foot from '../imges/runer-silhouette-running-fast.png';
 import GaugeChart from 'react-gauge-chart';
 import hrt from '../imges/heartbeat.gif';
 import { authenticateFitbit, fetchFitbitActivities } from './Connect';
-import { Gauge,LineChart } from '@mui/x-charts';
+import { LineChart ,Gauge} from '@mui/x-charts';
 import { useNavigate } from 'react-router-dom';
-const DB = () => {
+import axios from 'axios';
+// import { Gauge } from 'react-circular-gauge'
+import chroma from 'chroma-js'
+const DB = ({data}) => {
   const [heartRate, setHeartRate] = useState(75);
   const [activities, setActivities] = useState(null); 
   const [date, setDate] = useState("");
   const nav=useNavigate();
+  
   
   const res=async()=>{
     try{const res=await fetch('http://localhost:4000/authorize',{
@@ -34,7 +38,7 @@ const DB = () => {
     const fetchData = async () => {
       try {
         const data = await fetchFitbitActivities(date);
-        console.log(data);
+        console.log("kat",data);
         setActivities(data); // Update activities with the fetched data
       } catch (error) {
         console.error("Error fetching activities:", error);
@@ -46,7 +50,7 @@ const DB = () => {
     const interval = setInterval(() => {
       console.log("Fetching Fitbit activities...");
       fetchData();
-    }, 30 * 60 * 1000); 
+    }, 30 * 60 * 10); 
 
     return () => clearInterval(interval);
   }, [date]);
@@ -68,10 +72,10 @@ return (
                     <h3>Calorie</h3>
                     <div className='one-1-chart'>
                         <div className='gauge'>
-                            <GaugeComponent/>
+                            <GaugeComponent data={data}/>
                         </div>
                         <div className='gauge-info'>
-                        <SubComponent text={'Calorie Gained'} color={'#f1fdf5'} tc={'#2b9e56'} />
+                        <SubComponent  text={'Calorie Gained'} color={'#f1fdf5'} tc={'#2b9e56'} data={data} />
                         <SubComponent text={"Calorie burnt"} color={'#eef7ff'} tc={'#2b64d9'}/>
                         </div>
                     </div>
@@ -90,7 +94,7 @@ return (
               </div>
               <div className='one-gauge'>
                 <div style={{height:"100%"}}>
-                <Gauge width={150} height={150} value={60}  sx={{
+                <Gauge width={150} height={150} value={data?.Protein}  sx={{
         '& .MuiGauge-valueArc': {
           fill: '#00274D', // Value arc color
         },
@@ -105,7 +109,8 @@ return (
                 <p>Protein</p>
                 </div>
                 <div style={{height:"100%"}}>
-                <Gauge width={150} height={150} value={60} 
+                <Gauge width={150} height={150} value={data?.Carbs} 
+                maxValue={3000}
                 
                 sx={{
                   '& .MuiGauge-valueArc': {
@@ -123,7 +128,7 @@ return (
                 <p>Carbs</p>
                 </div>
                 <div style={{height:"100%"}}>
-                <Gauge width={150} height={150} value={60} 
+                <Gauge width={150} height={150} value={data?.Fat} 
                 
                 sx={{
                   '& .MuiGauge-valueArc': {
@@ -203,13 +208,22 @@ return (
   )
 }
 const Linechart=()=>{
-  const data = [
-    ["Year", "Sales", "Expenses"],
-    ["2004", 1000, 400],
-    ["2005", 1170, 460],
-    ["2006", 660, 1120],
-    ["2007", 1030, 540],
-  ];
+  // const data = [
+  //   ["Year", "Sales", "Expenses"],
+  //   ["2004", 1000, 400],
+  //   ["2005", 1170, 460],
+  //   ["2006", 660, 1120],
+  //   ["2007", 1030, 540],
+  // ];
+    // title: "Company Performance",
+    const [data,setData]=useState();
+    const ld=async()=>{
+      const res=await axios.get('http://localhost:4000/getCalH');
+      const d=res.json();
+      console.log("d",d);
+      setData(d);
+    }
+    ld()
   
   const options = {
     // title: "Company Performance",
@@ -246,33 +260,39 @@ export default DB
 // ��height:�250,
 // }
 
-const SubComponent=({text,color,tc})=>{
+const SubComponent=({text,color,tc,data})=>{
   return(
     <div className='info-sub' style={{backgroundColor:color}}>
       <p>
         {text}
       </p>
-      <p style={{fontWeight:'bold' ,color:tc}}>10000</p>
+      <p style={{fontWeight:'bold' ,color:tc}}>{(text=='Calorie Gained')?data?.Calorie:1000}</p>
     </div>
   )
 }
-const GaugeComponent=()=>{
+const GaugeComponent=({data})=>{
   return(
-    <Gauge width={150} height={150} value={60} 
-                
-                sx={{
-                  '& .MuiGauge-valueArc': {
-                    fill: '#28A745', // Value arc color
-                  },
-                  '& .MuiGauge-referenceArc': {
-                    fill: '#d3d3d3', // Reference arc color
-                  },
-                  '& .MuiGauge-valueLabel': {
-                    fill: '#74b8', // Value text color
-                    // text:"rem",
-                    fontSize: '24px', // Optional font size customization
-                  },
-                }}
-                />
+    
+
+
+    <Gauge
+    width={150}
+    height={150}
+    value={data?.Carbs}
+    max={300} // 👈 Set your custom maximum value here
+    sx={{
+      '& .MuiGauge-valueArc': {
+        fill: '#72C2E8',
+      },
+      '& .MuiGauge-referenceArc': {
+        fill: '#d3d3d3',
+      },
+      '& .MuiGauge-valueLabel': {
+        fill: '#74b8',
+        fontSize: '24px',
+      },
+    }}
+  />
+
   )
 }
