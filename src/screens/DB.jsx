@@ -26,7 +26,7 @@ const DB = ({data}) => {
         }
         );
         console.log(res.status);
-      if (res.status==404)nav('/signup/personal');}
+      if (res.status==404)nav('/login');}
       
         catch(error){console.log(error)}
     
@@ -216,14 +216,36 @@ const Linechart=()=>{
   //   ["2007", 1030, 540],
   // ];
     // title: "Company Performance",
-    const [data,setData]=useState();
-    const ld=async()=>{
-      const res=await axios.get('http://localhost:4000/getCalH');
-      const d=res.json();
-      console.log("d",d);
-      setData(d);
-    }
-    ld()
+    const [data,setData]=useState(null);
+    const res=async()=>{
+      console.log("hey yheh.");
+      try
+      {
+        const response = await axios.get('http://localhost:4000/getCalH');
+        console.log("Response data:", response.data);
+      }
+      catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    // try{const res=await fetch('http://localhost:4000/authorize',{
+    //   method: 'GET',
+    //   credentials: 'include',
+    //   headers: {'Content-Type': 'application/json',
+    //       },
+    //     }
+    //     );
+    //     console.log(res.status);
+    //   if (res.status==404)nav('/signup/personal');
+    // }
+      
+    //     catch(error){console.log(error)}
+    
+  }
+  
+   const ok=res();
+    
+    
+
   
   const options = {
     // title: "Company Performance",

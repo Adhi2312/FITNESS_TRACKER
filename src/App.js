@@ -4,12 +4,14 @@ import DB from './screens/DB'
 import {Food} from './screens/food'
 import { Routes,Route, useNavigate, Navigate} from 'react-router-dom';
 import { FaHome, FaUser, FaUtensils } from 'react-icons/fa';
+import { FaBowlFood } from "react-icons/fa6";
 // import { useState } from 'react-router-dom';
 import { useEffect,useState } from 'react';
 import ProfileForm from './screens/ProfileForm';
 import {Signup, GDLB} from './screens/signup';
 import { FirstPage } from './signup-pages/Main-Page';
 import { useQuery } from "@tanstack/react-query";
+import { Login } from './screens/login';
 // import { useNavigate } from 'react-router-dom';
 
 function App() {
@@ -46,6 +48,7 @@ function App() {
             <Route path="/plate" element={<Food/>}/>
             <Route path="/check" element={<ProfileForm />} />
             <Route path='/signup/*' element={<FirstPage/>}/>
+            <Route path='/login' element={<Login/>}/>
           </Routes>
         </div>
 
@@ -59,15 +62,15 @@ function App() {
 export const NavBar=()=>{
   const nav=useNavigate();
   return (
-    <div className='nav'>
-      <button className='nav-button' onClick={()=>{nav('/')}}>
-           <FaHome size={24}/>
+    <div className='fixed bottom-0 left-1/2 -translate-x-1/2 mb-4 flex bg-white shadow-lg border border-gray-200  rounded-full p-4 px-8 justify-between gap-14'>
+  <button className='nav-button' onClick={()=>{nav('/')}}>
+           <FaHome size={32}/>
       </button>
       <button className='nav-button' onClick={()=>{nav('/plate')}}>
-        <FaUtensils size={24}/>
+        <FaBowlFood size={32}/>
       </button>
       <button className='nav-button' onClick={()=>{nav('/check')}}>
-        <FaUser size={24}/>
+        <FaUser size={32}/>
       </button>
     </div>
     
